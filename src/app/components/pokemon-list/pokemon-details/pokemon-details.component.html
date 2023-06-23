@@ -1,0 +1,95 @@
+<div class="main-detail">
+    <div class="sub-details">
+        <div>
+            <div class="header-logo">
+                <img  class="pokeballs-logo" src="/assets/pokeballs-logo.png">
+            </div>
+        </div>
+
+        <div class="header-title">
+            <h2 class="pokemon-name">
+                {{pokemon.name}}
+            </h2>
+        </div>
+        <div class="main-head">
+            <div class="header-title">
+                <h2 class="pokemon-subtitle">
+                    Cod:
+                </h2>
+                <p class="pokemon-cod">
+                    #0{{pokemon.id}}
+                </p>
+            </div>
+
+            <div class="header-title-type">
+                <h2 class="pokemon-subtitle-type">
+                    Tipo:
+                </h2>
+                <div class="pokemon-type" [ngClass]="getPokemonTypeClass(pokemon.types[0].type.name)">
+                    <p>{{pokemon.types[0].type.name}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <h2 class="pokemon-title-description">
+                Descrição
+            </h2>
+        </div>
+
+        <div class="pokemon-description">
+            <p>{{pokemon.description}}</p>
+        </div>
+
+        <div>
+            <h2 class="pokemon-title-info">
+                Informações
+            </h2>
+        </div>
+
+        <div class="pokemon-sub-infos">
+            <div class="pokemon-titles">
+                <p>Altura:</p>
+                <p>Peso:</p>
+            </div>
+            <div class="pokemon-values">
+                <b>{{ heightMask(pokemon.height) }}m</b>
+                <p>{{pokemon.weight}}kg</p>
+            </div>
+        </div>
+
+        <div>
+            <div class="pokemon-attribute">
+                <p class="pokemon-title-attribute">Vida:</p>
+                <div [style.width.%]="pokemon.stats[0].base_stat"
+                    [ngClass]="getPokemonAttributeClass(pokemon.stats[0].stat.name)">
+                </div>
+            </div>
+
+            <div class="pokemon-attribute">
+                <p class="pokemon-title-attribute">Defesa:</p>
+                <div [style.width.%]="pokemon.stats[2].base_stat"
+                    [ngClass]="getPokemonAttributeClass(pokemon.stats[2].stat.name)">
+                </div>
+            </div>
+
+            <div class="pokemon-attribute">
+                <p class="pokemon-title-attribute">Ataque:</p>
+                <div [style.width.%]="pokemon.stats[1].base_stat"
+                    [ngClass]="getPokemonAttributeClass(pokemon.stats[1].stat.name)">
+                </div>
+            </div>
+
+            <div class="pokemon-attribute">
+                <p class="pokemon-title-attribute">Velocidade:</p>
+                <div [style.width.%]="pokemon.stats[3].base_stat"
+                    [ngClass]="getPokemonAttributeClass(pokemon.stats[3].stat.name)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pokemon-image">
+        <img class="image-fit" [src]=pokemon.sprites.front_default>
+    </div>
+</div>

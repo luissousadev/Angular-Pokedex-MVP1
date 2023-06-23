@@ -1,0 +1,64 @@
+    <div class="header-logo">
+        <img class="pokeballs-logo" src="/assets/pokeballs-logo.png">
+    </div>
+
+<div class="pokemon-title-head">
+    <div>
+        <h2 class="pokemon-title">
+            Explore o mundo dos <span class="pokemon-color">Pokémons </span>
+        </h2>
+        <p class="pokemon-subtitle">Descubra todas as espécies de Pokémons</p>
+        <div class="search-pokemon">
+            <input class="search-input" type="text" name="buscar" id="buscar" [(ngModel)]="pokemonName" (input)="resetList()">
+            <button class="search-button" (click)="searchPokemon()">Buscar</button>
+        </div>
+    </div>
+
+    <div class="header-images">
+        <div>
+            <img  class="first-responsive-image" src="/assets/pokemon-card-1.png">
+        </div>
+        <div class="pokemon-card-below">
+            <img class="second-responsive-image" src="/assets/pokemon-card-2.png">
+        </div>
+        <div>
+            <img class="third-responsive-image" src="/assets/pokemon-card-3.png">
+        </div>
+    </div>
+</div>
+
+
+<div class="pokedex-title">
+    <h3 class="pokedex-subtitle">Pokédex</h3>
+    <div>
+        <button class="round-button-right" (click)="previousPage()" [disabled]="currentPage === 1"></button>
+        <button  class="round-button-left" (click)="nextPage()"></button>
+    </div>
+</div>
+
+
+<div class="pokemon-grid">
+
+    <div *ngFor="let pokemon of pokemonList" class="pokemon-card" (click)="openPokemonDetails(pokemon)">
+
+        <div class="header-card">
+            <b class="pokemon-name">{{pokemon.name}}</b>
+            <p class="pokemon-cod">#0{{pokemon.id}}</p>
+        </div>
+
+        <div class="pokemon-image">
+            <img class="image-fit" [src]=pokemon.sprites.front_default>
+        </div>
+
+        <div class="pokemon-footer-card">
+            <div class="pokemon-titles">
+                <p>Altura:</p>
+                <p>Peso:</p>
+            </div>
+            <div class="pokemon-values">
+                <b>{{ heightMask(pokemon.height) }}cm</b>
+                <p>{{pokemon.weight}}kg</p>
+            </div>
+        </div>
+    </div>
+</div>
